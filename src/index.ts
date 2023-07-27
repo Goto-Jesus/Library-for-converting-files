@@ -1,22 +1,10 @@
 'use strict';
+import { XmlFormater } from './formates/xml';
 
-import { Logger } from 'sitka';
+const xml = new XmlFormater();
+xml.read('output.xml');
+xml.add('BMW', 77_000);
+xml.show();
+// xml.write('added_BMW.xml');
 
-export class Example {
-	/* Private Instance Fields */
-
-	private _logger: Logger;
-
-	/* Constructor */
-
-	constructor() {
-		this._logger = Logger.getLogger({ name: this.constructor.name });
-	}
-
-	/* Public Instance Methods */
-
-	public exampleMethod(param: string): string {
-		this._logger.debug('Received: ' + param);
-		return param;
-	}
-}
+//  npm start
