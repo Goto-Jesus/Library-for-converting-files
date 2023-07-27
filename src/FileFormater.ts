@@ -4,14 +4,14 @@ import path from 'path';
 import { Car } from './classes/Car';
 import { Format } from './types/Format';
 
-interface Formates {
+interface Formats {
 	formatName: string;
 	exemplar: FileFormater;
 	formatter: typeof FileFormater;
 }
 
 export abstract class FileFormater {
-	static formats: Formates[] = [];
+	static formats: Formats[] = [];
 
 	constructor(protected cars: Car[] = []) {}
 
@@ -88,7 +88,7 @@ export abstract class FileFormater {
 		throw new Error('Index out of range');
 	}
 
-	convert(outputFormat: FileFormater) {
+	convertTo(outputFormat: FileFormater) {
 		if (!outputFormat) {
 			throw new Error('Invalid output format');
 		}
